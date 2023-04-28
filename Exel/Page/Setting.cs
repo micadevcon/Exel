@@ -22,25 +22,31 @@ namespace Exel
             textBox3.Text = Properties.Settings.Default.NameList1.ToString();
             textBox4.Text = Properties.Settings.Default.NameList2.ToString();
             textBox5.Text = Properties.Settings.Default.NameList3.ToString();
-            textBox6.Text = Properties.Settings.Default.ColomnList1.ToString();
-            textBox7.Text = Properties.Settings.Default.ColomnList2.ToString();
-            textBox8.Text = Properties.Settings.Default.ColomnList3.ToString();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //сохранение данных
-            Properties.Settings.Default.PathFile1 = textBox1.Text;
-            Properties.Settings.Default.PathFile2 = textBox2.Text;
-            Properties.Settings.Default.NameList1 = textBox3.Text;
-            Properties.Settings.Default.NameList2 = textBox4.Text;
-            Properties.Settings.Default.NameList3 = textBox5.Text;
-            Properties.Settings.Default.ColomnList1 = Int32.Parse(textBox6.Text);
-            Properties.Settings.Default.ColomnList2 = Int32.Parse(textBox7.Text);
-            Properties.Settings.Default.ColomnList3 = Int32.Parse(textBox8.Text);
-            //сохранение данных
-            Properties.Settings.Default.Save();
+            if (            string.IsNullOrWhiteSpace(textBox1.Text) ||
+                            string.IsNullOrWhiteSpace(textBox2.Text) ||
+                            string.IsNullOrWhiteSpace(textBox3.Text) ||
+                            string.IsNullOrWhiteSpace(textBox4.Text) ||
+                            string.IsNullOrWhiteSpace(textBox5.Text))
+            {
+                MessageBox.Show("Не все поля заполнены!!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else 
+            {
+                //сохранение данных
+                Properties.Settings.Default.PathFile1 = textBox1.Text;
+                Properties.Settings.Default.PathFile2 = textBox2.Text;
+                Properties.Settings.Default.NameList1 = textBox3.Text;
+                Properties.Settings.Default.NameList2 = textBox4.Text;
+                Properties.Settings.Default.NameList3 = textBox5.Text;
+                //сохранение данных
+                Properties.Settings.Default.Save();
+                MessageBox.Show("Данные сохранены! Для вступления изменений требуется перезагрузка приложения.", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -39,12 +39,6 @@ namespace Exel
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -106,7 +100,7 @@ namespace Exel
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 182);
+            this.label3.Location = new System.Drawing.Point(180, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 13);
             this.label3.TabIndex = 7;
@@ -114,7 +108,7 @@ namespace Exel
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(44, 199);
+            this.textBox4.Location = new System.Drawing.Point(183, 133);
             this.textBox4.MaxLength = 300;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
@@ -136,57 +130,6 @@ namespace Exel
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(534, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "номер столбца третьего листа ";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(179, 132);
-            this.textBox6.MaxLength = 300;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 14;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(176, 182);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "номер столбца второго листа ";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(179, 199);
-            this.textBox7.MaxLength = 300;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(176, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "номер столбца первого листа ";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(537, 132);
-            this.textBox8.MaxLength = 300;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 10;
             // 
             // label8
             // 
@@ -225,12 +168,6 @@ namespace Exel
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -260,12 +197,6 @@ namespace Exel
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

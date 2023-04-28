@@ -25,7 +25,7 @@ namespace Exel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string PathFile1 {
             get {
                 return ((string)(this["PathFile1"]));
@@ -37,7 +37,7 @@ namespace Exel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string PathFile2 {
             get {
                 return ((string)(this["PathFile2"]));
@@ -49,7 +49,7 @@ namespace Exel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NameList1 {
             get {
                 return ((string)(this["NameList1"]));
@@ -61,7 +61,7 @@ namespace Exel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NameList2 {
             get {
                 return ((string)(this["NameList2"]));
@@ -73,49 +73,13 @@ namespace Exel.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string NameList3 {
             get {
                 return ((string)(this["NameList3"]));
             }
             set {
                 this["NameList3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ColomnList1 {
-            get {
-                return ((int)(this["ColomnList1"]));
-            }
-            set {
-                this["ColomnList1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ColomnList2 {
-            get {
-                return ((int)(this["ColomnList2"]));
-            }
-            set {
-                this["ColomnList2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ColomnList3 {
-            get {
-                return ((int)(this["ColomnList3"]));
-            }
-            set {
-                this["ColomnList3"] = value;
             }
         }
     }

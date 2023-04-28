@@ -3,10 +3,10 @@ C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\bin\Re
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\bin\Release\Exel.pdb
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.csproj.AssemblyReference.cache
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.csproj.ResolveComReference.cache
-C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.Form1.resources
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.Setting.resources
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.Properties.Resources.resources
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.csproj.GenerateResource.cache
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.csproj.CoreCompileInputs.cache
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.exe
 C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.pdb
+C:\Users\micad\Downloads\учеба\4 курс\практика\Exel\Exel\obj\Release\Exel.Calendar.resources

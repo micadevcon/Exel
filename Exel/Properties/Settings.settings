@@ -3,28 +3,19 @@
   <Profiles />
   <Settings>
     <Setting Name="PathFile1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="PathFile2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NameList1" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NameList2" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NameList3" Type="System.String" Scope="User">
-      <Value Profile="(Default)">-</Value>
-    </Setting>
-    <Setting Name="ColomnList1" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="ColomnList2" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="ColomnList3" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
