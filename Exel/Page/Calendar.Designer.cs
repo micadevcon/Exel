@@ -29,8 +29,16 @@ namespace Exel
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calendar));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.календарьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаДанныхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сегодняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.неделюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.месяцToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обновитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -70,9 +78,66 @@ namespace Exel
             // 
             // календарьToolStripMenuItem
             // 
+            this.календарьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сортировкаДанныхToolStripMenuItem,
+            this.обновитьToolStripMenuItem,
+            this.выходToolStripMenuItem});
             this.календарьToolStripMenuItem.Name = "календарьToolStripMenuItem";
             this.календарьToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.календарьToolStripMenuItem.Text = "Календарь";
+            // 
+            // сортировкаДанныхToolStripMenuItem
+            // 
+            this.сортировкаДанныхToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сегодняToolStripMenuItem,
+            this.неделюToolStripMenuItem,
+            this.месяцToolStripMenuItem,
+            this.всеToolStripMenuItem});
+            this.сортировкаДанныхToolStripMenuItem.Name = "сортировкаДанныхToolStripMenuItem";
+            this.сортировкаДанныхToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сортировкаДанныхToolStripMenuItem.Text = "отобразить данные";
+            // 
+            // сегодняToolStripMenuItem
+            // 
+            this.сегодняToolStripMenuItem.Name = "сегодняToolStripMenuItem";
+            this.сегодняToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.сегодняToolStripMenuItem.Text = "сегодня";
+            this.сегодняToolStripMenuItem.Click += new System.EventHandler(this.radioButton4_Click);
+            // 
+            // неделюToolStripMenuItem
+            // 
+            this.неделюToolStripMenuItem.Name = "неделюToolStripMenuItem";
+            this.неделюToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.неделюToolStripMenuItem.Text = "неделю";
+            this.неделюToolStripMenuItem.Click += new System.EventHandler(this.radioButton3_Click);
+            // 
+            // месяцToolStripMenuItem
+            // 
+            this.месяцToolStripMenuItem.Name = "месяцToolStripMenuItem";
+            this.месяцToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.месяцToolStripMenuItem.Text = "месяц";
+            this.месяцToolStripMenuItem.Click += new System.EventHandler(this.radioButton2_Click);
+            // 
+            // всеToolStripMenuItem
+            // 
+            this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
+            this.всеToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.всеToolStripMenuItem.Text = "все";
+            this.всеToolStripMenuItem.Click += new System.EventHandler(this.radioButton1_Click);
+            // 
+            // обновитьToolStripMenuItem
+            // 
+            this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
+            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.обновитьToolStripMenuItem.Text = "обновить";
+            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Text = "выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -86,6 +151,7 @@ namespace Exel
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -206,10 +272,9 @@ namespace Exel
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(44, 17);
             this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Все";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.Click += new System.EventHandler(this.radioButton1_Click);
             // 
             // radioButton2
             // 
@@ -218,10 +283,9 @@ namespace Exel
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(58, 17);
             this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Месяц";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.Click += new System.EventHandler(this.radioButton2_Click);
             // 
             // radioButton3
             // 
@@ -230,10 +294,9 @@ namespace Exel
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(63, 17);
             this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Неделя";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.Click += new System.EventHandler(this.radioButton3_Click);
             // 
             // panel1
             // 
@@ -251,6 +314,7 @@ namespace Exel
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
+            this.radioButton4.Checked = true;
             this.radioButton4.Location = new System.Drawing.Point(196, 3);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(52, 17);
@@ -258,7 +322,7 @@ namespace Exel
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "День";
             this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.radioButton4.Click += new System.EventHandler(this.radioButton4_Click);
             // 
             // Calendar
             // 
@@ -268,7 +332,9 @@ namespace Exel
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1330, 657);
             this.MinimumSize = new System.Drawing.Size(200, 200);
             this.Name = "Calendar";
             this.Text = "Календарь";
@@ -305,6 +371,13 @@ namespace Exel
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.ToolStripMenuItem сортировкаДанныхToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сегодняToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem неделюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem месяцToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem всеToolStripMenuItem;
     }
 }
 

@@ -29,6 +29,7 @@ namespace Exel
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@ namespace Exel
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(294, 295);
+            this.button1.Location = new System.Drawing.Point(260, 190);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(203, 39);
             this.button1.TabIndex = 2;
@@ -164,7 +165,7 @@ namespace Exel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(739, 253);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox5);
@@ -178,6 +179,8 @@ namespace Exel
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(755, 292);
             this.Name = "Setting";
             this.Text = "Настройки";
             this.ResumeLayout(false);
