@@ -77,6 +77,9 @@ namespace Exel.Page
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(781, 250);
+            this.MinimumSize = new System.Drawing.Size(781, 250);
             this.Name = "info";
             this.Text = "О программе";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

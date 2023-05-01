@@ -326,7 +326,7 @@ namespace Exel
             // 
             // Calendar
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1314, 618);
             this.Controls.Add(this.dataGridView1);
