@@ -82,5 +82,41 @@ namespace Exel.Properties {
                 this["NameList3"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int List1FirstColumn {
+            get {
+                return ((int)(this["List1FirstColumn"]));
+            }
+            set {
+                this["List1FirstColumn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int List2FirstColumn {
+            get {
+                return ((int)(this["List2FirstColumn"]));
+            }
+            set {
+                this["List2FirstColumn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int List3FirstColumn {
+            get {
+                return ((int)(this["List3FirstColumn"]));
+            }
+            set {
+                this["List3FirstColumn"] = value;
+            }
+        }
     }
 }

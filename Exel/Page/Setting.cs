@@ -22,6 +22,9 @@ namespace Exel
             textBox3.Text = Properties.Settings.Default.NameList1.ToString();
             textBox4.Text = Properties.Settings.Default.NameList2.ToString();
             textBox5.Text = Properties.Settings.Default.NameList3.ToString();
+            textBox6.Text = Properties.Settings.Default.List1FirstColumn.ToString();
+            textBox7.Text = Properties.Settings.Default.List2FirstColumn.ToString();
+            textBox8.Text = Properties.Settings.Default.List3FirstColumn.ToString();
 
         }
 
@@ -31,7 +34,10 @@ namespace Exel
                             string.IsNullOrWhiteSpace(textBox2.Text) ||
                             string.IsNullOrWhiteSpace(textBox3.Text) ||
                             string.IsNullOrWhiteSpace(textBox4.Text) ||
-                            string.IsNullOrWhiteSpace(textBox5.Text))
+                            string.IsNullOrWhiteSpace(textBox5.Text) ||
+                            string.IsNullOrWhiteSpace(textBox6.Text) ||
+                            string.IsNullOrWhiteSpace(textBox7.Text) ||
+                            string.IsNullOrWhiteSpace(textBox8.Text))
             {
                 MessageBox.Show("Не все поля заполнены!!", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -43,6 +49,9 @@ namespace Exel
                 Properties.Settings.Default.NameList1 = textBox3.Text;
                 Properties.Settings.Default.NameList2 = textBox4.Text;
                 Properties.Settings.Default.NameList3 = textBox5.Text;
+                Properties.Settings.Default.List1FirstColumn = Int32.Parse(textBox6.Text);
+                Properties.Settings.Default.List2FirstColumn = Int32.Parse(textBox7.Text);
+                Properties.Settings.Default.List3FirstColumn = Int32.Parse(textBox8.Text);
                 //сохранение данных
                 Properties.Settings.Default.Save();
                 MessageBox.Show("Данные сохранены! Для вступления изменений требуется перезагрузка приложения.", "Оповещение", MessageBoxButtons.OK, MessageBoxIcon.Information);

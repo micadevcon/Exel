@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -14,8 +15,9 @@ namespace Exel
         {
             
             InitializeComponent();
+            label2.Text = DateTime.Today.ToString("dd.MM.yyyy");
             Main();
-            
+            sortDataWeek();
         }
         private void checkFalse() 
         {
@@ -55,7 +57,10 @@ namespace Exel
                string.IsNullOrWhiteSpace(Properties.Settings.Default.PathFile2) ||
                string.IsNullOrWhiteSpace(Properties.Settings.Default.NameList1) ||
                string.IsNullOrWhiteSpace(Properties.Settings.Default.NameList2) ||
-               string.IsNullOrWhiteSpace(Properties.Settings.Default.NameList3))
+               string.IsNullOrWhiteSpace(Properties.Settings.Default.NameList3) ||
+               string.IsNullOrWhiteSpace(Properties.Settings.Default.List1FirstColumn.ToString()) ||
+               string.IsNullOrWhiteSpace(Properties.Settings.Default.List2FirstColumn.ToString()) ||
+               string.IsNullOrWhiteSpace(Properties.Settings.Default.List3FirstColumn.ToString()))
                     throw new Exception("Изначальные данные не заполнены! Пожалуйста, перейдите в меню настройки и заполните пустые поля");
                if (File.Exists(Properties.Settings.Default.PathFile1))
                     Workbook1 = (Excel.Workbook)(xlApp1.Workbooks.Add(Properties.Settings.Default.PathFile1)); //название файла Excel откуда будем копировать лист
@@ -72,17 +77,14 @@ namespace Exel
                 Worksheet3 = (Excel.Worksheet)Workbook2.Worksheets[Properties.Settings.Default.NameList3];
 
                 //последний занятый столбец и строка с данными
-                int iFirstCol1 = Worksheet1.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Column;
                 int iFirstRow1 = Worksheet1.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Row;
                 int iLastCol1 = Worksheet1.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Column;
                 int iLastRow1 = Worksheet1.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
 
-                int iFirstCol2 = Worksheet2.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Column;
                 int iFirstRow2 = Worksheet2.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Row;
                 int iLastCol2 = Worksheet2.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Column;
                 int iLastRow2 = Worksheet2.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
 
-                int iFirstCol3 = Worksheet3.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Column;
                 int iFirstRow3 = Worksheet3.Cells.SpecialCells(Excel.XlCellType.xlCellTypeConstants).Row;
                 int iLastCol3 = Worksheet3.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Column;
                 int iLastRow3 = Worksheet3.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
@@ -93,17 +95,17 @@ namespace Exel
                 Excel.Range rangeEnd;
 
                 Object[,] masExel1;
-                rangeFirst = Worksheet1.Cells[iFirstRow1, iFirstCol1];
+                rangeFirst = Worksheet1.Cells[iFirstRow1, Properties.Settings.Default.List1FirstColumn];
                 rangeEnd = Worksheet1.Cells[iLastRow1, iLastCol1];
                 masExel1 = (System.Object[,])Worksheet1.get_Range(rangeFirst, rangeEnd).get_Value();
 
                 Object[,] masExel2;
-                rangeFirst = Worksheet2.Cells[iFirstRow2, iFirstCol2];
+                rangeFirst = Worksheet2.Cells[iFirstRow2, Properties.Settings.Default.List2FirstColumn];
                 rangeEnd = Worksheet2.Cells[iLastRow2, iLastCol2];
                 masExel2 = (System.Object[,])Worksheet2.get_Range(rangeFirst, rangeEnd).get_Value();
 
                 Object[,] masExel3;
-                rangeFirst = Worksheet3.Cells[iFirstRow3, iFirstCol3];
+                rangeFirst = Worksheet3.Cells[iFirstRow3, Properties.Settings.Default.List3FirstColumn];
                 rangeEnd = Worksheet3.Cells[iLastRow3, iLastCol3];
                 masExel3 = (System.Object[,])Worksheet3.get_Range(rangeFirst, rangeEnd).get_Value();
 
@@ -113,15 +115,15 @@ namespace Exel
                 for (int i = 2; i < masExel1.GetLength(0) + 1; i++)
                 {
                     object nameList = Properties.Settings.Default.NameList1;
-                    object data = Convert.ToDateTime(masExel1[i, 8]).ToShortDateString();
-                    object organiz = checkNull(masExel1[i, 1]);
-                    object dogovor = checkNull(masExel1[i, 2]);
-                    object atp = checkNull(masExel1[i, 3]);
-                    object programm = checkNull(masExel1[i, 4]);
-                    object numPeople = checkNull(masExel1[i, 5]);
-                    object numTime = checkNull(masExel1[i, 6]);
-                    object dataC = checkNull(masExel1[i, 7]);
-                    object sum = checkNull(masExel1[i, 9]);
+                    object data = Convert.ToDateTime(masExel1[i, 5]);
+                    object organiz = checkNull(masExel1[i, 2]);//
+                    object dogovor = checkNull(masExel1[i, 1]);//
+                    object atp = "-";
+                    object programm = checkNull(masExel1[i, 3]);//
+                    object numPeople = checkNull(masExel1[i, 4]);
+                    object numTime = "-";
+                    object dataC = "-";
+                    object sum = checkNull(masExel1[i, 6]);
                     object numNotifStart = "-";
                     object numNotifservice = "-";
                     dataGridView1.Rows.Add(
@@ -131,22 +133,20 @@ namespace Exel
                         );
                 }
                 form3.progressBar1.Value = 40;
-
                 for (int i = 2; i < masExel2.GetLength(0) + 1; i++)
                 {
                     object nameList = Properties.Settings.Default.NameList2;
-                    object data = Convert.ToDateTime(masExel2[i, 8]).ToShortDateString();
-                    object organiz = checkNull(masExel2[i, 1]);
-                    object dogovor = checkNull(masExel2[i, 2]);
-                    object atp = checkNull(masExel2[i, 3]);
-                    object programm = checkNull(masExel2[i, 4]);
-                    object numPeople = checkNull(masExel2[i, 5]);
-                    object numTime = checkNull(masExel2[i, 6]);
-                    object dataC = checkNull(masExel2[i, 7]);
-                    object sum = checkNull(masExel2[i, 9]);
-                    object numNotifStart = "-";
-                    object numNotifservice = "-";
-
+                    object data = Convert.ToDateTime(masExel2[i, 3]);//
+                    object organiz = checkNull(masExel2[i, 2]);//
+                    object dogovor = checkNull(masExel2[i, 1]);//
+                    object atp = "-";
+                    object programm = "-";
+                    object numPeople = "-";
+                    object numTime = "-";
+                    object dataC = "-";
+                    object sum = "-";
+                    object numNotifStart = checkNull(masExel2[i, 4]);//
+                    object numNotifservice = checkNull(masExel2[i, 5]);//
                     dataGridView1.Rows.Add(
                         nameList, Convert.ToDateTime(data), organiz, dogovor,
                         atp, programm, numPeople, numTime,
@@ -157,17 +157,17 @@ namespace Exel
                 for (int i = 2; i < masExel3.GetLength(0) + 1; i++)
                 {
                     object nameList = Properties.Settings.Default.NameList3;
-                    object data = Convert.ToDateTime(masExel3[i, 3]);//
-                    object organiz = checkNull(masExel3[i, 2]);//
-                    object dogovor = checkNull(masExel3[i, 1]);//
-                    object atp = "-";
-                    object programm = "-";
-                    object numPeople = "-";
-                    object numTime = "-";
-                    object dataC = "-";
-                    object sum = "-";
-                    object numNotifStart = checkNull(masExel3[i, 4]);//
-                    object numNotifservice = checkNull(masExel3[i, 5]);//
+                    object data = Convert.ToDateTime(masExel3[i, 8]).ToShortDateString();
+                    object organiz = checkNull(masExel3[i, 1]);
+                    object dogovor = checkNull(masExel3[i, 2]);
+                    object atp = checkNull(masExel3[i, 3]);
+                    object programm = checkNull(masExel3[i, 4]);
+                    object numPeople = checkNull(masExel3[i, 5]);
+                    object numTime = checkNull(masExel3[i, 6]);
+                    object dataC = checkNull(masExel3[i, 7]);
+                    object sum = checkNull(masExel3[i, 9]);
+                    object numNotifStart = "-";
+                    object numNotifservice = "-";
                     dataGridView1.Rows.Add(
                         nameList, Convert.ToDateTime(data), organiz, dogovor,
                         atp, programm, numPeople, numTime,
@@ -215,11 +215,6 @@ namespace Exel
             form2.Show();
         }
 
-        private void dataGridView1_Scroll(object sender, ScrollEventArgs e)
-        {
-            dataGridView1.Update();
-        }
-
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -229,6 +224,7 @@ namespace Exel
         {
             dataGridView1.Rows.Clear();
             Main();
+            sortDataWeek();
         }
 
         private void radioButton4_Click(object sender, EventArgs e)
@@ -243,11 +239,8 @@ namespace Exel
                     row.Visible = true;
             }
         }
-
-        private void radioButton3_Click(object sender, EventArgs e)
+        private void sortDataWeek() 
         {
-            checkFalse();
-            radioButton3.Checked = true;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.Cells[1].Value != null && Convert.ToDateTime(row.Cells[1].Value).AddDays(7) < DateTime.Today)
@@ -255,6 +248,13 @@ namespace Exel
                 else
                     row.Visible = true;
             }
+        }
+
+        private void radioButton3_Click(object sender, EventArgs e)
+        {
+            checkFalse();
+            radioButton3.Checked = true;
+            sortDataWeek();
         }
 
         private void radioButton2_Click(object sender, EventArgs e)
